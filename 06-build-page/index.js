@@ -46,7 +46,7 @@ fs.readdir(folderStyle, {withFileTypes: true}, function (err, files) {
 
 
 
-async function copyDir(assets, project) {
+async function copyAssets(assets, project) {
   await fs.promises.mkdir(project, { recursive: true });
   let content = await fs.promises.readdir(project);
   for (let i = 0; i < content.length; i++){
@@ -58,8 +58,8 @@ async function copyDir(assets, project) {
     if (!stats.isDirectory()) {
       await fs.promises.copyFile(path.join(assets, content[i]), path.join(project, content[i]));
     } else {
-      await copyDir(path.join(assets, content[i]), path.join(project, content[i]));
+      await copyAssets(path.join(assets, content[i]), path.join(project, content[i]));
     }
   }
 }
-copyDir(path.join(__dirname, 'assets'), path.join(path.join(__dirname, 'project-dist'), 'assets'));
+copyAssets(path.join(__dirname, 'assets'), path.join(path.join(__dirname, 'project-dist'), 'assets'));
