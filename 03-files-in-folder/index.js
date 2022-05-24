@@ -11,10 +11,10 @@ function getPaths (folderPath) {
           console.log(files[i].name, ext, stats.size);
         });
         //console.log(files[i].name, ext);
-      } else {
+      } /*else {
         getPaths(fullPath);
-      }
+      }*/
     }
   }); 
 }
-console.log(getPaths(path.join(__dirname)));
+console.log(getPaths(path.join(__dirname, 'secret-folder')));
