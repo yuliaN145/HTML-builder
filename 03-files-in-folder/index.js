@@ -8,7 +8,9 @@ function getPaths (folderPath) {
       if (files[i].isFile()) {
         const ext = path.extname(fullPath);
         fs.stat(fullPath, function (err, stats){
-          console.log(files[i].name, ext, stats.size);
+          let res = files[i].name.indexOf('.');
+          let newStr = files[i].name.substring(0, res);
+          console.log(newStr, ext, stats.size);
         });
         //console.log(files[i].name, ext);
       } /*else {
