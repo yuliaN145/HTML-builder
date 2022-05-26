@@ -19,4 +19,4 @@ function getPaths (folderPath) {
     }
   }); 
 }
-console.log(getPaths(path.join(__dirname, 'secret-folder')));
+getPaths(path.join(__dirname, 'secret-folder'));
